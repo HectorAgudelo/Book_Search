@@ -1,3 +1,18 @@
+// Get DOM elements
+const searchBtn = document.getElementsByClassName('btn2');
+const searchInput = document.querySelector('input').value;
+
+console.log(searchBtn)
+
+searchBtn.addEventListener("click", function() {
+    document.getElementById("demo").innerHTML = "Hello World";
+  });
+
+// searchBtn.addEventListener('click', function(){
+//     // console.log('clicked')
+// 	console.log(searchInput)
+// })
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -15,14 +30,14 @@ const getBook = (book)=>{
 	.catch(err => console.error(err));
 }
 
-getBook(book)
+// getBook(book)
 
 // get the 15 most popular book of the month
-const PopBooks = () => {
-    fetch('https://hapi-books.p.rapidapi.com/month/2022/3', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-}
+// const PopBooks = () => {
+//     fetch('https://hapi-books.p.rapidapi.com/month/2022/3', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+// }
 
 // PopBooks();

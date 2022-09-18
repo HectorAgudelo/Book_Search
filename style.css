@@ -1,0 +1,54 @@
+.row>* {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.navbar{
+    background-color: rgb(253, 236, 226, 0.5) !important;
+}
+.background{
+    background-image: url('./assets/tools-for-motivation-KvTOwKoji7g-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    margin: 0px !important;
+    width: 100% !important;
+    display: flex;   
+}
+.search{
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center  
+}
+.search__box{
+    background-color: rgb(253, 236, 226, 0.5);
+    margin: 60px !important;
+    padding: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 25px;
+    box-shadow: rgb(0, 0, 0) 0px 50px 100px -20px, rgb(0, 0, 0) 0px 30px 60px -30px, rgba(0, 0, 0, 0.925) 0px -2px 6px 0px inset;
+}
+.search__inputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn{
+    background-color: #d33228 !important;
+}
+.search__image{
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    padding: 0px !important;
+}   
+.img{
+    height: 100% !important;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
