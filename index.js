@@ -1,34 +1,36 @@
-// Get DOM elements
-const input = document.getElementById("input")
-
-
-
-const btn = document.getElementById("button-addon2");
-
-
-btn.addEventListener("click", function(){
-    console.log(input.value)
-})
-
-
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1e16a8d7aemsh965bef850564727p10cb7bjsna6a7185b6c67',
-		'X-RapidAPI-Host': 'hapi-books.p.rapidapi.com'
-	}
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '1e16a8d7aemsh965bef850564727p10cb7bjsna6a7185b6c67',
+    'X-RapidAPI-Host': 'hapi-books.p.rapidapi.com',
+  },
 };
 
-// get book by name
-const book = 'one hundred years of solitude'
-const getBook = (book)=>{
-    fetch(`https://hapi-books.p.rapidapi.com/search/${book}`, options)
-	.then(response => response.json())
-	.then(response => console.log(response[0].authors[0]))
-	.catch(err => console.error(err));
-}
+// Get DOM elements
+// targeting the button id
+const btn = document.getElementById('button-addon2');
 
-// getBook(book)
+btn.addEventListener('click', function () {
+  // getting the input value from user input
+  const userInput = document.getElementById('input').value;
+
+  const book = userInput;
+
+  fetch(`https://hapi-books.p.rapidapi.com/search/${book}`, options)
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      displayCards(response);
+    })
+    .catch((err) => console.error(err));
+});
+
+// this function will construct the cards with the data from the api.
+// this function is called inside the fetch function.
+const displayCards = (data) => {
+  console.log(data[0].authors[0]);
+};
+// get book by name
 
 // get the 15 most popular book of the month
 // const PopBooks = () => {
