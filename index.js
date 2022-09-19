@@ -29,74 +29,21 @@ btn.addEventListener('click', function () {
 // this function is called inside the fetch function.
 const displayCards = (data) => {
   const searchBox = document.querySelector('#searchBox');
-  const cards = document.querySelector('#cardsContainer');
+  const body = document.querySelector('.bodyCol');
   searchBox.style.display = 'none';
-  
-//   const card = document.createElement('div');
-//   card.setAttribute('class', 'card');
-//   card.style.width="18rem";
-  
-//   card.innerHTML = `
-//   <img src="..." class="card-img-top" alt="...">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div> 
-// `;
-
-  cards.innerHTML = `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  body.innerHTML = `<div class="d-flex flex-row flex-wrap p-2 justify-content-center overflow-scroll vh-100 align-content-start mt-5" id='cardsContainer'>`;
+const cardsContainer = document.querySelector('#cardsContainer');
+  for (let i = 0; i < data.length; i++) {
+    cardsContainer.innerHTML += `<div class="card" style="width: 18rem;">
+  <img src="${data[i].cover}" class="card-img-top bookImage height=5 width=5" alt="${data[i].name}">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">${data[i].name}</h5>
+    <p class="card-text">Author: ${data[i].authors[i]}</p>
+    <p class="card-text">Year: ${data[i].year}</p>
+    <p class="card-text">Rating: ${data[i].rating}</p>
+    <a href="${data[i].url}" class="btn btn-primary">Explore More</a>
   </div>
 </div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>`
-
-
-  console.log(data[0].authors[0]);
+`;
+  }
 };
-// get book by name
-
-// get the 15 most popular book of the month
-// const PopBooks = () => {
-//     fetch('https://hapi-books.p.rapidapi.com/month/2022/3', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-// }
-
-// PopBooks();
