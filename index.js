@@ -1,17 +1,15 @@
 // Get DOM elements
-const searchBtn = document.getElementsByClassName('btn2');
-const searchInput = document.querySelector('input').value;
+const input = document.getElementById("input")
 
-console.log(searchBtn)
 
-searchBtn.addEventListener("click", function() {
-    document.getElementById("demo").innerHTML = "Hello World";
-  });
 
-// searchBtn.addEventListener('click', function(){
-//     // console.log('clicked')
-// 	console.log(searchInput)
-// })
+const btn = document.getElementById("button-addon2");
+
+
+btn.addEventListener("click", function(){
+    console.log(input.value)
+})
+
 
 const options = {
 	method: 'GET',
