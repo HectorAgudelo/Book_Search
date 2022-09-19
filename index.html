@@ -20,16 +20,19 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <div
-      class="container-fluid text-center background"
-      
-    >
+  <body class="background">
+    <div class="container-fluid text-center">
       <div class="row">
         <div class="col">
           <nav class="navbar">
             <div class="container-fluid">
-              <a class="navbar-brand"><img src="./assets/book-icon.png " height="30" width="auto" alt=""></a>
+              <a class="navbar-brand"
+                ><img
+                  src="./assets/book-icon.png "
+                  height="30"
+                  width="auto"
+                  alt=""
+              /></a>
               <form class="d-flex" role="search">
                 <input
                   class="form-control me-2"
@@ -46,8 +49,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col search">
-          <div class="container search__box">
+        <div class="col bodyCol" id="parentCol">
+          <!-- <div class="d-flex p-2 cardsContainer">I'm a flexbox container!</div> -->
+          <div class="container search__box" id="searchBox">
             <div class="container search__inputContainer">
               <h3 class="search__heading">Online Library</h3>
               <p class="search__text">Find a great book to read</p>
@@ -58,7 +62,6 @@
                   class="form-control"
                   placeholder="Find a book"
                   aria-label="Find a book"
-                  
                 />
                 <button
                   class="btn btn-outline-light btn2"
@@ -72,7 +75,7 @@
             <div class="container search__image">
               <img
                 src="./assets/bookstore.jpg"
-                class="img-fluid img"
+                class="img"
                 alt="search image"
               />
             </div>

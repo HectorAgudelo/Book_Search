@@ -28,6 +28,12 @@ btn.addEventListener('click', function () {
 // this function will construct the cards with the data from the api.
 // this function is called inside the fetch function.
 const displayCards = (data) => {
+  const searchBox = document.querySelector('#searchBox');
+  const cards = document.querySelector('#parentCol')
+  searchBox.style.display = "none"
+
+  cards.appendChild(`<h1>HEllo World</h1>`)
+
   console.log(data[0].authors[0]);
 };
 // get book by name
