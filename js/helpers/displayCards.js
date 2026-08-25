@@ -1,19 +1,34 @@
 const displayCards = (data) => {
-  const searchBox = document.querySelector('#searchBox');
-  const body = document.querySelector('.bodyCol');
-  searchBox.style.display = 'none';
-  body.innerHTML = `<div class="d-flex flex-row flex-wrap p-2 justify-content-center overflow h-100 align-content-start mt-5" id='cardsContainer'>`;
   const cardsContainer = document.querySelector('#cardsContainer');
+  const loadingSpinner = document.querySelector('#loadingSpinner');
+
+  // Hide loading spinner
+  loadingSpinner.classList.remove('active');
+
+  // Clear any existing cards
+  cardsContainer.innerHTML = '';
+
+  // Provide user feedback if no data is found
+  if (!data || data.length === 0) {
+    cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">No books found. Try another search.</p>`;
+    return;
+  }
+
   for (let i = 0; i < data.length; i++) {
+    // Better handling of authors array
+    const authors = data[i].authors && data[i].authors.length > 0
+      ? data[i].authors.join(', ')
+      : 'Unknown';
+
     cardsContainer.innerHTML += `
     <div class="card m-2" style="width: 18rem;">
-      <img src="${data[i].cover}" class="card-img-top bookImage height=5 width=5 " alt="${data[i].name}">
-      <div class="card-body">
+      <img src="${data[i].cover}" class="card-img-top bookImage" alt="${data[i].name}">
+      <div class="card-body d-flex flex-column">
         <h5 class="card-title">${data[i].name}</h5>
-        <p class="card-text">Author: ${data[i].authors[i]}</p>
-        <p class="card-text">Year: ${data[i].year}</p>
-        <p class="card-text">Rating: ${data[i].rating}</p>
-        <a href="${data[i].url}" class="btn btn-primary">Explore More</a>
+        <p class="card-text mb-1"><strong>Author:</strong> ${authors}</p>
+        <p class="card-text mb-1"><strong>Year:</strong> ${data[i].year || 'N/A'}</p>
+        <p class="card-text mb-3"><strong>Rating:</strong> ${data[i].rating || 'N/A'}</p>
+        <a href="${data[i].url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto text-white">Explore More</a>
       </div>
     </div>
   `;

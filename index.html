@@ -6,6 +6,9 @@
     <title>Book Finder</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./style.css" />
     <link
@@ -52,7 +55,7 @@
                   aria-label="Find a book"
                 />
                 <button
-                  class="btn btn-outline-light btn2"
+                  class="btn btn-outline-light btn2 text-white"
                   id="button-addon2"
                   type="submit"
                 >
@@ -65,12 +68,18 @@
                 src="./assets/bookstore.jpg"
                 class="img imgSearch"
                 alt="search image"
-                fixed
               />
             </div>
           </div>
   
+          <!-- Loading Spinner -->
+          <div class="spinner-border text-light loading-spinner" id="loadingSpinner" role="status">
+            <span class="visually-hidden">Loading...</span>
           </div>
+
+          <!-- Cards Container -->
+          <div class="d-flex flex-row flex-wrap p-2 justify-content-center overflow h-100 align-content-start mt-4 w-100" id="cardsContainer"></div>
+
         </div>
       </div>
     </div>
