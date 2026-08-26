@@ -18,12 +18,22 @@ btn.addEventListener('click', function () {
   loadingSpinner.classList.add('active');
   cardsContainer.innerHTML = '';
 
+  // Disable input and button to prevent double submission
+  const inputElement = document.getElementById('input');
+  inputElement.disabled = true;
+  btn.disabled = true;
+  btn.textContent = 'Searching...';
+
   fetchBooks(book).then((response) => {
     displayCards(response);
   }).catch((err) => {
     loadingSpinner.classList.remove('active');
     cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
     console.error(err);
+  }).finally(() => {
+    inputElement.disabled = false;
+    btn.disabled = false;
+    btn.textContent = 'Search';
   });
 });
 
