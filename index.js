@@ -10,7 +10,11 @@ btn.addEventListener('click', function () {
 
   const book = userInput;
 
-  if (!book) return; // Prevent empty searches
+  const inputEl = document.getElementById('input');
+  if (!book) {
+    inputEl.focus();
+    return; // Prevent empty searches
+  }
 
   // Show loading spinner and clear previous results
   const loadingSpinner = document.getElementById('loadingSpinner');
@@ -18,12 +22,20 @@ btn.addEventListener('click', function () {
   loadingSpinner.classList.add('active');
   cardsContainer.innerHTML = '';
 
+  // Disable button to prevent multiple submissions
+  btn.disabled = true;
+  const originalBtnText = btn.textContent;
+  btn.textContent = 'Searching...';
+
   fetchBooks(book).then((response) => {
     displayCards(response);
   }).catch((err) => {
     loadingSpinner.classList.remove('active');
     cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
     console.error(err);
+  }).finally(() => {
+    btn.disabled = false;
+    btn.textContent = originalBtnText;
   });
 });
 
