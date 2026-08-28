@@ -18,13 +18,27 @@ btn.addEventListener('click', function () {
   loadingSpinner.classList.add('active');
   cardsContainer.innerHTML = '';
 
-  fetchBooks(book).then((response) => {
-    displayCards(response);
-  }).catch((err) => {
-    loadingSpinner.classList.remove('active');
-    cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
-    console.error(err);
-  });
+  // Disable inputs during fetch
+  const inputEl = document.getElementById('input');
+  inputEl.disabled = true;
+  btn.disabled = true;
+  btn.textContent = 'Searching...';
+
+  fetchBooks(book)
+    .then((response) => {
+      displayCards(response);
+    })
+    .catch((err) => {
+      loadingSpinner.classList.remove('active');
+      cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
+      console.error(err);
+    })
+    .finally(() => {
+      // Re-enable inputs
+      inputEl.disabled = false;
+      btn.disabled = false;
+      btn.textContent = 'Search';
+    });
 });
 
 // Also trigger search on Enter key press
