@@ -1,0 +1,3 @@
+## 2024-08-29 - [Improved UX and Accessibility in Book Finder]
+**Learning:** Preventing duplicate requests during a loading state by explicitly disabling buttons and inputs provides crucial feedback to users, preventing confusion. Additionally, using descriptive `aria-label` attributes for generic action links (like "Explore More") ensures that screen reader users can navigate directly to actionable elements with sufficient context without needing to read surrounding static text repeatedly.
+**Action:** Always verify loading state disables inputs/buttons and review generic links for contextual `aria-label`s.
