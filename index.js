@@ -18,12 +18,23 @@ btn.addEventListener('click', function () {
   loadingSpinner.classList.add('active');
   cardsContainer.innerHTML = '';
 
+  // Disable inputs while fetching
+  btn.disabled = true;
+  document.getElementById('input').disabled = true;
+  btn.textContent = 'Searching...';
+
   fetchBooks(book).then((response) => {
     displayCards(response);
+    btn.disabled = false;
+    document.getElementById('input').disabled = false;
+    btn.textContent = 'Search';
   }).catch((err) => {
     loadingSpinner.classList.remove('active');
     cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
     console.error(err);
+    btn.disabled = false;
+    document.getElementById('input').disabled = false;
+    btn.textContent = 'Search';
   });
 });
 
