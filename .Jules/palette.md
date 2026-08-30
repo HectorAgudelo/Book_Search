@@ -1,0 +1,3 @@
+## 2024-03-24 - Add contextual ARIA label to generic "Explore More" links
+**Learning:** Generic link texts like 'Explore More' create severe accessibility barriers for screen reader users who navigate by link lists. Screen readers announce the links without surrounding context, so users won't know where the link goes.
+**Action:** Always provide context via `aria-label` to give these links a descriptive label when the visual context isn't programmatically linked.
