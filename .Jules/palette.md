@@ -1,0 +1,3 @@
+## 2026-09-01 - Prevent Duplicate Submissions and Enhance Screen Reader Support
+**Learning:** Users can accidentally submit multiple identical search requests if the button remains enabled during the fetch, leading to race conditions and redundant API calls. Additionally, dynamically loaded content like search results might go unnoticed by screen reader users without an `aria-live` region.
+**Action:** Always disable submit buttons during async operations and provide inline loading feedback (e.g., a spinner in the button). For dynamic content containers (like a list of search results), use `aria-live="polite"` to ensure screen readers announce updates without aggressively interrupting the user.
