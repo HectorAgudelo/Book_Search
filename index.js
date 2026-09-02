@@ -18,9 +18,21 @@ btn.addEventListener('click', function () {
   loadingSpinner.classList.add('active');
   cardsContainer.innerHTML = '';
 
+  // Disable input and button during search
+  const inputEl = document.getElementById('input');
+  inputEl.disabled = true;
+  btn.disabled = true;
+  btn.textContent = 'Searching...';
+
   fetchBooks(book).then((response) => {
+    inputEl.disabled = false;
+    btn.disabled = false;
+    btn.textContent = 'Search';
     displayCards(response);
   }).catch((err) => {
+    inputEl.disabled = false;
+    btn.disabled = false;
+    btn.textContent = 'Search';
     loadingSpinner.classList.remove('active');
     cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">Failed to fetch books. Please try again.</p>`;
     console.error(err);
