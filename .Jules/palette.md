@@ -1,0 +1,3 @@
+## 2024-09-02 - Interaction feedback during async operations
+**Learning:** During async operations like fetching search results, it's critical to disable both the submit button and the input field. This prevents users from initiating duplicate parallel requests by mashing the button, and providing inline text feedback (e.g., "Searching...") immediately lets the user know the system is actively working, addressing instances where loading states aren't instantly obvious.
+**Action:** Always check async form submissions and button clicks to ensure interactive elements are temporarily disabled and visually reflect their working state.
