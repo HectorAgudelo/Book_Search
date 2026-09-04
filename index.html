@@ -46,13 +46,14 @@
             <div class="container search__inputContainer">
               <h3 class="search__heading">Online Library</h3>
               <p class="search__text">Find a great book to read</p>
-              <div class="input-group mb-3">
+              <form id="searchForm" role="search" class="input-group mb-3">
                 <input
                   type="search"
                   id="input"
                   class="form-control"
                   placeholder="Find a book"
                   aria-label="Find a book"
+                  required
                 />
                 <button
                   class="btn btn-outline-light btn2 text-white"
@@ -61,7 +62,7 @@
                 >
                   Search
                 </button>
-              </div>
+              </form>
             </div>
             <div class="container search__image">
               <img
