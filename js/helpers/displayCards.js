@@ -10,7 +10,7 @@ const displayCards = (data) => {
 
   // Provide user feedback if no data is found
   if (!data || data.length === 0) {
-    cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4">No books found. Try another search.</p>`;
+    cardsContainer.innerHTML = `<p class="text-light fs-4 mt-4" role="alert">No books found. Try another search.</p>`;
     return;
   }
 
@@ -28,7 +28,7 @@ const displayCards = (data) => {
         <p class="card-text mb-1"><strong>Author:</strong> ${authors}</p>
         <p class="card-text mb-1"><strong>Year:</strong> ${data[i].year || 'N/A'}</p>
         <p class="card-text mb-3"><strong>Rating:</strong> ${data[i].rating || 'N/A'}</p>
-        <a href="${data[i].url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto text-white">Explore More</a>
+        <a href="${data[i].url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto text-white" aria-label="Explore more about ${data[i].name}">Explore More</a>
       </div>
     </div>
   `;
